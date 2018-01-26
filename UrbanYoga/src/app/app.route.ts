@@ -13,13 +13,13 @@ import {ScheduleComponent} from "./Components/Schedule.component";
 import {ReportsComponent} from "./Components/Reports.component";
 
 export const appRoute = [
-  /*{path:"",component:DashboardComponent},*/
+  {path:"",redirectTo:"Dashboard",pathMatch:"full"},
   {path:"Appointments",component:AppointmentsComponent},
   {path:"Classes",component:ClassesComponent},
   {path:"ClientHome",component:ClientHomeComponent},
   {path:"Dashboard",component:DashboardComponent,
     children:[
-      /*{path:"",component:BusinessOverviewComponent},*/
+      {path:"",redirectTo:"BusinessOverview",pathMatch:"full"},
       {path:"ChildDashboard",component:ChildDashboardComponent},
       {path:"BusinessOverview",component:BusinessOverviewComponent},
       {path:"Schedule",component:ScheduleComponent},

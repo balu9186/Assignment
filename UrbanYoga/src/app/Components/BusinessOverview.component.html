@@ -1,9 +1,5 @@
-<!--Welcome to Business Overview
-<br>-->
-<!--{{defaultdata | json}}-->
 
-
-<table class="table table-bordered">
+<table class="table table-bordered" style="width:95%" align="center">
   <tr>
     <td *ngFor="let programmes of defaultdata | slice:0:3">
       <h2>{{programmes.Name}}</h2>
@@ -12,16 +8,16 @@
         <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
         <kendo-chart-tooltip></kendo-chart-tooltip>
         <kendo-chart-series>
-          <kendo-chart-series-item  type="bar" [data]="programmes.Sales.PreviousYear">
+          <kendo-chart-series-item  type="column" [data]="programmes.Sales.PreviousYear">
           </kendo-chart-series-item>
-          <kendo-chart-series-item  type="bar" [data]="programmes.Sales.CurrentYear">
+          <kendo-chart-series-item  type="column" [data]="programmes.Sales.CurrentYear">
           </kendo-chart-series-item>
         </kendo-chart-series>
       </kendo-chart>
       <table table table-bordered wid="auto">
         <tr>
           <td width="45%"><b>Total Monthly</b></td>
-          <td width="43%"><b>Current</b></td>
+          <td width="42%"><b>Current</b></td>
           <td width="25%"><b>1- Year</b></td>
         </tr>
         <tr>
@@ -30,41 +26,44 @@
           <td></td>
         </tr>
         <tr>
-          <td colspan="3"><button type="button" (click)="ViewDetails(programmes.ProgramID)" >more</button></td>
+          <td colspan="3">
+            <!--<button type="button" (click)="ViewDetails(programmes.ProgramID)" >more</button>-->
+            <a (click)="ViewDetails(programmes.ProgramID)"><b>more</b></a>
+          </td>
         </tr>
         <tr [hidden]="hideRows">
           <td><b>Price Name</b></td>
           <td><b>Current</b></td>
           <td><b>1- Year</b></td>
         </tr>
-        <tr *ngFor="let detail of details" [hidden]="hideRows">
+        <tr *ngFor="let detail of details | slice:1" [hidden]="hideRows">
           <td>{{detail.Name}}</td>
           <td>{{detail.Sales}}</td>
           <td></td>
         </tr>
         <tr [hidden]="hideRows">
-          <td colspan="3"><button type="button" (click)="HideDetails()" >less</button></td>
+          <td colspan="3">
+            <!--<button type="button" (click)="HideDetails()" >less</button>-->
+            <a (click)="HideDetails()"><b>less</b></a>
+          </td>
         </tr>
 
       </table>
-      <!--Total Monthly Sales : {{programmes.TotalMonthlySales}}-->
-      <!--<a href="#" (click)="ViewDetails(programmes.ProgramID)">more</a>-->
-      <!--<button type="button" (click)="ViewDetails(programmes.ProgramID)">more</button>-->
 
-      <!--<div id="divdetails">-->
-        <!--<table table table-bordered>
-          <tr>
-            <td width="50%"><b>Price Name</b></td>
-            <td width="50%"><b>Current</b></td>
-
-          </tr>
-          <tr *ngFor="let detail of details">
-            <td>{{detail.Name}}</td>
-            <td>{{detail.Sales}}</td>
-
-          </tr>
-        </table>-->
-      <!--</div>-->
     </td>
   </tr>
+</table>
+<hr>
+<table class="table table-bordered" style="width:95%" align="center">
+  <tr>
+    <td>All  Programs</td>
+    <td>Monthly Sales</td>
+    <td>Monthly Attendance</td>
+  </tr>
+  <tr *ngFor="let remPrograms of defaultdata | slice:3">
+    <td><b>{{remPrograms.Name}}</b></td>
+    <td><b>{{remPrograms.TotalMonthlySales | currency}}</b></td>
+    <td><b>{{remPrograms.MonthlyAttendance}} views</b></td>
+  </tr>
+
 </table>
