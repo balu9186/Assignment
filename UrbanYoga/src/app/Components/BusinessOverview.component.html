@@ -3,9 +3,9 @@
 <!--{{defaultdata | json}}-->
 
 
-<table class="table table-stripped">
+<table class="table table-bordered">
   <tr>
-    <td *ngFor="let programmes of defaultdata">
+    <td *ngFor="let programmes of defaultdata | slice:0:3">
       <h2>{{programmes.Name}}</h2>
       <kendo-chart [categoryAxis]="{categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul']}">
         <kendo-chart-title text="Sales by month"></kendo-chart-title>
@@ -18,32 +18,53 @@
           </kendo-chart-series-item>
         </kendo-chart-series>
       </kendo-chart>
-      <table>
+      <table table table-bordered wid="auto">
         <tr>
-          <td>Total Monthly</td>
-          <td>Current</td>
-
+          <td width="45%"><b>Total Monthly</b></td>
+          <td width="43%"><b>Current</b></td>
+          <td width="25%"><b>1- Year</b></td>
         </tr>
         <tr>
           <td>Sales</td>
           <td>{{programmes.TotalMonthlySales | currency}}</td>
-
+          <td></td>
         </tr>
+        <tr>
+          <td colspan="3"><button type="button" (click)="ViewDetails(programmes.ProgramID)" >more</button></td>
+        </tr>
+        <tr [hidden]="hideRows">
+          <td><b>Price Name</b></td>
+          <td><b>Current</b></td>
+          <td><b>1- Year</b></td>
+        </tr>
+        <tr *ngFor="let detail of details" [hidden]="hideRows">
+          <td>{{detail.Name}}</td>
+          <td>{{detail.Sales}}</td>
+          <td></td>
+        </tr>
+        <tr [hidden]="hideRows">
+          <td colspan="3"><button type="button" (click)="HideDetails()" >less</button></td>
+        </tr>
+
       </table>
       <!--Total Monthly Sales : {{programmes.TotalMonthlySales}}-->
-      <a href="#" (click)="ViewDetails()">more</a>
-      <!--<div>
-        <table>
+      <!--<a href="#" (click)="ViewDetails(programmes.ProgramID)">more</a>-->
+      <!--<button type="button" (click)="ViewDetails(programmes.ProgramID)">more</button>-->
+
+      <!--<div id="divdetails">-->
+        <!--<table table table-bordered>
           <tr>
-            <td>Price Name</td>
-            <td>Current</td>
+            <td width="50%"><b>Price Name</b></td>
+            <td width="50%"><b>Current</b></td>
+
           </tr>
-          <tr *ngFor="let detail of fulldetails | detail.ProgramID:programmes.ProgramID">
-            <td></td>
-            <td></td>
+          <tr *ngFor="let detail of details">
+            <td>{{detail.Name}}</td>
+            <td>{{detail.Sales}}</td>
+
           </tr>
-        </table>
-      </div>-->
+        </table>-->
+      <!--</div>-->
     </td>
   </tr>
 </table>
