@@ -1,0 +1,49 @@
+<!--Welcome to Business Overview
+<br>-->
+<!--{{defaultdata | json}}-->
+
+
+<table class="table table-stripped">
+  <tr>
+    <td *ngFor="let programmes of defaultdata">
+      <h2>{{programmes.Name}}</h2>
+      <kendo-chart [categoryAxis]="{categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul']}">
+        <kendo-chart-title text="Sales by month"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-tooltip></kendo-chart-tooltip>
+        <kendo-chart-series>
+          <kendo-chart-series-item  type="bar" [data]="programmes.Sales.PreviousYear">
+          </kendo-chart-series-item>
+          <kendo-chart-series-item  type="bar" [data]="programmes.Sales.CurrentYear">
+          </kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+      <table>
+        <tr>
+          <td>Total Monthly</td>
+          <td>Current</td>
+
+        </tr>
+        <tr>
+          <td>Sales</td>
+          <td>{{programmes.TotalMonthlySales | currency}}</td>
+
+        </tr>
+      </table>
+      <!--Total Monthly Sales : {{programmes.TotalMonthlySales}}-->
+      <a href="#" (click)="ViewDetails()">more</a>
+      <!--<div>
+        <table>
+          <tr>
+            <td>Price Name</td>
+            <td>Current</td>
+          </tr>
+          <tr *ngFor="let detail of fulldetails | detail.ProgramID:programmes.ProgramID">
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>-->
+    </td>
+  </tr>
+</table>
