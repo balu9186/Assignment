@@ -7,12 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class Component1Component implements OnInit {
 
-  constructor() { }
+  @Input() field1:string;
+  @Input() field2:string;
+  @Input() field3:string;
+  constructor() { 
+    this.field1="hai";
+  }
 
   ngOnInit() {
   }
 
-  @Input() field1:string;
-  @Input() field2:string;
+  
+  
 
 }

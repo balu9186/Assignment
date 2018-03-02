@@ -22,4 +22,9 @@ export class Component2Component implements OnInit {
     this.text2.emit(value);
   }
 
+  @Output() text3 = new EventEmitter<string>();
+  passTxt3(value:string){
+    this.text3.emit(value);
+  }
+
 }

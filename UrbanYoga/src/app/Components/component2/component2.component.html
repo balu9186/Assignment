@@ -16,7 +16,8 @@
       </div>
       <div class="form-group">
           <label>Field 3 :</label>
-          <input type="text" name="field3" [(ngModel)]="field3" ngModel>
+          <input type="text" name="field3" [(ngModel)]="field3" 
+          (input)="passTxt3($event.target.value)" ngModel>
       </div>
     
     

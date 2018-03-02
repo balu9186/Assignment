@@ -2,12 +2,13 @@
 <h3>Welcome to Classes</h3>
 </div>
 
-<app-component1 [field1]=txt1 [field2]=txt2>
+<app-component1 [field1]=txt1 [field2]=txt2 [field3]=txt3>
 
 </app-component1>
 <!-- {{txt1}}<br>
 {{txt2}} -->
 
-<app-component2 (text1)="showTxt1($event)" (text2)="showTxt2($event)">
+<app-component2 (text1)="showTxt1($event)" (text2)="showTxt2($event)" 
+(text3)="showTxt3($event)">
 
 </app-component2>
