@@ -1,0 +1,28 @@
+<p>
+  component2 works!
+</p>
+
+<div class="container">
+    <div class="row">
+      <div class="form-group">
+          <label>Field 1 :</label>
+          <input type="text" name="field1" [(ngModel)]="field1" 
+          (input)="passTxt1($event.target.value)" ngModel>
+      </div>
+      <div class="form-group">
+          <label>Field 2 :</label>
+          <input type="text" name="field2" [(ngModel)]="field2" 
+          (input)="passTxt2($event.target.value)" ngModel>
+      </div>
+      <div class="form-group">
+          <label>Field 3 :</label>
+          <input type="text" name="field3" [(ngModel)]="field3" ngModel>
+      </div>
+    
+    
+    </div>
+  </div>
+
+  <!-- {{field1}}<br>
+  {{field2}}<br>
+  {{field3}} -->

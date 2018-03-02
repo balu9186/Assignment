@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import {FormsModule} from '@angular/forms';
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
 
@@ -25,16 +25,18 @@ import {AssessmentService} from "./Services/assessment.service";
 
 import { AppComponent } from './app.component';
 import {appRoute} from "./app.route";
+import { Component1Component } from './Components/component1/component1.component';
+import { Component2Component } from './Components/component2/component2.component';
 
 @NgModule({
   declarations: [
     AppComponent,AppointmentsComponent,ClassesComponent,ClientHomeComponent,DashboardComponent,
     RetailComponent,SignInComponent,WorkshopsComponent,ChildDashboardComponent,BusinessOverviewComponent,
-    ScheduleComponent,ReportsComponent
+    ScheduleComponent,ReportsComponent, Component1Component, Component2Component
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,
-    ChartsModule,HttpModule,
+    ChartsModule,HttpModule,FormsModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [AssessmentService],
