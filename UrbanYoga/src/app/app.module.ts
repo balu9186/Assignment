@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {FormsModule} from '@angular/forms';
-import {RouterModule} from "@angular/router";
+import {RouterModule, RouteReuseStrategy} from "@angular/router";
 import {HttpModule} from "@angular/http";
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -28,6 +28,8 @@ import {appRoute} from "./app.route";
 import { Component1Component } from './Components/component1/component1.component';
 import { Component2Component } from './Components/component2/component2.component';
 
+import {SimpleReuseStrategy} from './simple-reuse-strategy';
+
 @NgModule({
   declarations: [
     AppComponent,AppointmentsComponent,ClassesComponent,ClientHomeComponent,DashboardComponent,
@@ -39,7 +41,9 @@ import { Component2Component } from './Components/component2/component2.componen
     ChartsModule,HttpModule,FormsModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [AssessmentService],
+  providers: [AssessmentService
+  ,{provide:RouteReuseStrategy,useClass:SimpleReuseStrategy}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
