@@ -1,14 +1,27 @@
+
+<style type="text/css">
+
+.color {
+    /* background-color: yellow; */
+    border:2px solid red;
+}
+
+</style>
+
 <div align="center">
 <h3>Welcome to Classes</h3>
 </div>
 
+<div id="com01" class="target" (click)="highl(com01)">
 <app-component1 [field1]=txt1 [field2]=txt2 [field3]=txt3>
 
 </app-component1>
-<!-- {{txt1}}<br>
-{{txt2}} -->
+</div>
 
+
+<div id="com02" class="target" (click)="highl(com02)">
 <app-component2 (text1)="showTxt1($event)" (text2)="showTxt2($event)" 
 (text3)="showTxt3($event)">
 
 </app-component2>
+</div>

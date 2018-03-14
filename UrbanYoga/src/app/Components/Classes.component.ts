@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import * as $ from 'jquery';
 
 @Component({
   templateUrl:'../Components/Classes.component.html'
@@ -19,6 +20,19 @@ export class ClassesComponent{
 
   showTxt3(val){
     this.txt3=val;
+  }
+
+  highl(com){
+    
+  //   $("#com01").click(function(){
+  //     $(".target").effect( "highlight", {color:"#669966"}, 3000 );
+  //  });
+
+  var addclass = 'color';
+  var $cols = $('.target').click(function(e) {
+      $cols.removeClass(addclass);
+      $(this).addClass(addclass);
+  });
   }
 
 }
